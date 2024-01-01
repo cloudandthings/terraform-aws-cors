@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.3](https://github.com/cloudandthings/terraform-aws-cors/compare/v0.0.2...v0.0.3) (2024-01-01)
+
+
+### Features
+
+* Add LICENSE ([1d6a033](https://github.com/cloudandthings/terraform-aws-cors/commit/1d6a033e26561772b2053cd32caf8029e646bf18))
+
 ## [0.0.2](https://github.com/cloudandthings/terraform-aws-cors/compare/v0.0.1...v0.0.2) (2024-01-01)
 
 
