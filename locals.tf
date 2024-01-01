@@ -12,6 +12,6 @@ locals {
   all_headers_list = distinct(concat(var.allowed_headers, local.default_headers))
   all_headers      = join(",", local.all_headers_list)
 
-  methods_list = distinct(concat(var.methods, list(local.options_method)))
+  methods_list = distinct(concat(var.methods, [local.options_method]))
   methods      = join(",", local.methods_list)
 }

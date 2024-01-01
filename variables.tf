@@ -18,12 +18,12 @@ variable "methods" {
   type        = list(string)
 
   validation {
-    condition     = alltrue([for method in var.methods : contains(["GET", "POST", "PUT", "DELETE", "HEAD", "PATCH", "OPTIONS"], var.method)])
+    condition     = alltrue([for method in var.methods : contains(["GET", "POST", "PUT", "DELETE", "HEAD", "PATCH", "OPTIONS"], method)])
     error_message = "Methods must be a list of valid HTTP methods."
   }
 
   validation {
-    condition     = length(var.methods) == 0
+    condition     = length(var.methods) > 0
     error_message = "At least one method needs to be supplied."
   }
 }

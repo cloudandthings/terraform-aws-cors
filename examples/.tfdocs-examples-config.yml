@@ -14,13 +14,6 @@ sections:
   show: []
 
 content: |-
-  ----
-  ## main.tf
-  ```hcl
-  {{ include "main.tf" }}
-  ```
-  ----
-
   ## Documentation
 
   ----

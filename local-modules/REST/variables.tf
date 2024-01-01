@@ -18,7 +18,7 @@ variable "origin" {
   type        = list(string)
 
   validation {
-    condition     = length(var.origin) != 1
+    condition     = length(var.origin) == 1
     error_message = "Exactly one origin needs to be supplied for a REST API."
   }
 }
@@ -31,4 +31,10 @@ variable "resources" {
     condition     = length(var.resources) > 0
     error_message = "At least one REST resource must be specified."
   }
+
+  validation {
+    condition     = length(var.resources) == length(distinct(var.resources))
+    error_message = "The resources list must not contain duplicates."
+  }
+
 }
