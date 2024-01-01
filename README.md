@@ -38,7 +38,7 @@ module "basic_cors_rest" {
   source  = "cloudandthings/cors/aws"
   version = "1.0.0"
 
-  api_gateway_type = 'REST'
+  api_gateway_type = "REST"
   api              = aws_api_gateway_rest_api.your_api.id
 
   resources = [
@@ -56,7 +56,7 @@ module "basic_cors_rest" {
     "OPTIONS"
   ]
 
-  allowed_origins = ['http://your_domain']
+  allowed_origins = ["http://your_domain"]
 
   disable_default_headers = true
 
@@ -68,6 +68,10 @@ module "basic_cors_rest" {
 
 ## Usage with HTTP API (v2)
 
+
+## Caveats
+- **PROXY_INTEGRATION** does not allow you to modify the response. This means you need to set the CORS headers in your code (see examples folder).
+- The module will create an `OPTIONS` method on every provided API resource. The browser will not always send a preflight request, this can be forced by adding some custom header ("X-PING: pong").
 
 <!-- BEGIN_TF_DOCS -->
 ## Terraform Documentation
@@ -94,7 +98,11 @@ module "basic_cors_rest" {
 ----
 ### Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_headers"></a> [headers](#output\_headers) | A list of headers that are allowed in a preflight request. |
+| <a name="output_methods"></a> [methods](#output\_methods) | A list of methods that are allowed in a preflight request. |
+| <a name="output_origins"></a> [origins](#output\_origins) | A list of origins that are allowed in a preflight request. |
 
 ----
 ### Providers
